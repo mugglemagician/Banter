@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/createRoom.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <title>Register</title>
+</head>
+
+<body>
+
+    <main>
+
+        <% if ((success && success.length> 0) || (error && error.length > 0)) { %>
+
+            <div class="flashContainer">
+
+                <div class="flashContent">
+
+                    <% if (success && success.length> 0) { %>
+                        <span class="success">
+                            <%= success %>
+                        </span>
+
+                        <% } %>
+
+                            <% if (error && error.length> 0) { %>
+                                <span class="error">
+                                    <%= error %>
+                                </span>
+
+                                <% } %>
+
+                </div>
+
+                <span class="closeFlash">
+                    &cross;
+                </span>
+
+            </div>
+
+            <% } %>
+
+                <form action="/register" method="POST" class="registerForm">
+
+                    <h1>Register</h1>
+
+                    <div class="inputContainer">
+                        <div>
+                            <label for="username">Username : </label>
+                        </div>
+                        <input type="text" id="username" required name="username" autofocus autocomplete="off">
+                    </div>
+
+                    <div class="inputContainer">
+                        <div>
+                            <label for="username">Email : </label>
+                        </div>
+                        <input type="email" id="email" required name="email" autofocus autocomplete="off">
+                    </div>
+
+                    <div class="inputContainer">
+                        <div>
+                            <label for=" password">Password : </label>
+                        </div>
+                        <input type="password" id="password" name="password" autocomplete="off" required>
+                    </div>
+
+                    <button class="btn">Register</button>
+
+                    <a href="/rooms">Back</a>
+
+                </form>
+
+    </main>
+
+    <script src="/scripts/closeFlash.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/chatRoom.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <title>
+        <%= room.name %>
+    </title>
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="/rooms">Banter</a>
+
+            </div>
+
+            <ul class="otherLinks">
+
+                <li>
+                    <a href="#" style="font-size: xx-large;" class="hamBurger">
+                        &#x2630;
+                    </a>
+                </li>
+
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+        <div class="sidebar">
+
+            <div class="sidebarHeader">
+                <span class="cross">
+                    &cross;
+                </span>
+            </div>
+
+            <div class="roomName">
+                <%= room.name %>
+            </div>
+
+            <div class="sidebarContentContainer">
+                <div class="sidebarContent">
+
+                    <div class="fontControl">
+                        <label for="fontSize" class="fontSize">Font Size</label>
+                        <input type="range" id="fontSize" name="fontSize" min="1" max="1.8" step="0.1" value="1">
+                    </div>
+
+                    <div class="themeControl">
+                        <label for="theme" class="theme">Theme</label>
+                        <input type="checkbox" id="theme" name="theme">
+                    </div>
+
+                    <% if (currentUser && room.creator.equals(currentUser._id)) { %>
+                        <form action="/rooms/<%= room._id %>?_method=DELETE" method="POST" class="deleteForm">
+                            <button class="btn">Delete</button>
+                        </form>
+
+                        <% } %>
+
+                </div>
+            </div>
+
+        </div>
+
+        <div class="prompt">
+            <form action="#" class="usernameForm">
+                <div>
+                    <label for="username">Username : </label>
+                    <input type="text" name="username" id="username" maxlength="15" placeholder="default : anonymous"
+                        autocomplete="off">
+                    <input type="text" value="<%= room._id %>" name="roomId" hidden autocomplete="off">
+                </div>
+
+                <button class="btn">Enter</button>
+
+            </form>
+        </div>
+
+        <div class="room">
+
+            <div class="chatArea">
+
+                <div class="chatOuterContainer">
+
+                    <div class="chatHeader">
+                        <span class="userCounter">
+
+                        </span>
+                    </div>
+
+                    <ul class="chats">
+                    </ul>
+
+                </div>
+
+                <div class="typeArea">
+
+                    <form action="#" class="inputTextForm">
+
+                        <textarea name="inputText" id="inputText" rows="2" autofocus autocomplete="off"></textarea>
+
+                        <button class="btn sendBtn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-send-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M15.964.686a.5.5 0 0 0-.65-.65L.767 5.855H.766l-.452.18a.5.5 0 0 0-.082.887l.41.26.001.002 4.995 3.178 3.178 4.995.002.002.26.41a.5.5 0 0 0 .886-.083zm-1.833 1.89L6.637 10.07l-.215-.338a.5.5 0 0 0-.154-.154l-.338-.215 7.494-7.494 1.178-.471z" />
+                            </svg>
+                        </button>
+
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+
+
+    </main>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/scripts/chatRoom.js"></script>
+</body>
+
+</html>

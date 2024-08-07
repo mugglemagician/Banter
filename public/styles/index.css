@@ -1,0 +1,464 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Kanit', sans-serif;
+    list-style: none;
+    text-decoration: none;
+    list-style: none;
+    text-decoration: none;
+}
+
+.btn {
+    padding: 10px 25px;
+    border-radius: 5px;
+    border: none;
+    background-color: #694F8E;
+    color: #FFDFD6;
+    cursor: pointer;
+    box-shadow: 1px 1px 5px 1px black;
+    transition: transform .15s ease-in;
+    font-size: x-large;
+}
+
+.btn:hover {
+    transform: translateY(-1px);
+}
+
+body {
+    background-color: #0D1117;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+h1 {
+    font-size: 50px;
+    color: #e2e2e2;
+    margin-bottom: 20px;
+}
+
+header {
+    width: 100%;
+    color: #e2e2e2;
+    padding: 5px 20px;
+    padding-right: 30px;
+    background-color: #161B22;
+}
+
+nav {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+
+    a {
+        font-size: 50px;
+        font-weight: 900;
+        color: white;
+    }
+}
+
+.user {
+    cursor: pointer;
+}
+
+
+.sidebar {
+    height: 100%;
+    width: 30%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #161B22;
+    z-index: 10;
+    border-radius: 30px 0 0 30px;
+    border: 1px solid black;
+    transition: all .25s ease-in;
+    display: none;
+}
+
+.sidebarHeader {
+    padding: 0 20px;
+    width: 100%;
+    height: 10%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    border-radius: 30px 0 0 0;
+}
+
+.registerBtn a {
+    background-color: brown;
+}
+
+.loginBtn a {
+    background-color: green;
+}
+
+.logoutBtn a {
+    background-color: gray;
+}
+
+.cross {
+    font-size: xxx-large;
+    color: #e2e2e2;
+    cursor: pointer;
+    pointer-events: none;
+}
+
+.sidebarContentContainer {
+    width: 100%;
+    height: 65%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sidebarContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    height: 50%;
+}
+
+main {
+    width: 100%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.flashContainer {
+    width: 40%;
+    height: 7%;
+    margin: 0 auto;
+    background-color: #161B22;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.flashContent {
+    margin-left: 40px;
+    margin-right: 5px;
+}
+
+.closeFlash {
+    color: white;
+    font-size: xx-large;
+    margin-right: 20px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.success,
+.error {
+    font-size: large;
+}
+
+.success {
+    color: greenyellow;
+}
+
+.error {
+    color: brown;
+}
+
+
+.otherContainer {
+    width: 80%;
+    height: 10%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.btn.create {
+    background-color: purple;
+}
+
+.search {
+    height: 50%;
+    padding: 10px;
+    font-size: x-large;
+    border-radius: 10px;
+    border: none;
+}
+
+.search:focus {
+    outline: none;
+    border: none;
+}
+
+.roomsContainer {
+    width: 80%;
+    height: 80%;
+    background-color: #161B22;
+    margin: 0 auto;
+    border-radius: 20px 0 0 20px;
+    overflow: auto;
+    position: relative;
+}
+
+::-webkit-scrollbar {
+    width: 4px;
+    background-color: #161B22;
+    border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 6px;
+    background-color: #242c39;
+}
+
+
+.room {
+    text-align: center;
+    font-size: xx-large;
+    border-bottom: 1px solid #0D1117;
+    box-sizing: border-box;
+    width: 100%;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.room a {
+    color: #a480d6;
+    transition: all .15s ease-in;
+}
+
+.room a:hover {
+    color: #bda5e0;
+}
+
+.joinRoomForm {
+    width: 100%;
+    height: 100%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+
+    * {
+        margin: 0 15px;
+    }
+
+    input {
+        width: 40%;
+        height: 70%;
+        padding: 10px 15px;
+        background-color: #e2e2e2;
+        font-size: x-large;
+        border-radius: 10px;
+        box-shadow: 1px 1px 10px 1px black;
+        border: none;
+    }
+
+    .join {
+        background-color: green;
+    }
+
+    .back {
+        background-color: brown;
+    }
+
+    input:focus {
+        outline: none;
+    }
+
+    a,
+    a:hover {
+        color: #e2e2e2;
+    }
+}
+
+
+@media screen and (max-width: 1360px) {
+    .sidebar {
+        width: 40%;
+    }
+
+    .flashContainer {
+        width: 50%;
+    }
+
+    ::-webkit-scrollbar {
+        width: 8px;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .sidebar {
+        width: 50%;
+    }
+
+    .flashContainer {
+        width: 60%;
+    }
+}
+
+@media screen and (max-width: 830px) {
+    .flashContainer {
+        width: 70%;
+    }
+
+    ::-webkit-scrollbar {
+        width: 5px;
+    }
+}
+
+@media screen and (max-width: 750px) {
+
+    .search {
+        font-size: large;
+    }
+
+    .btn.create {
+        font-size: large;
+    }
+
+    .sidebar {
+        width: 60%;
+    }
+}
+
+@media screen and (max-width: 690px) {
+
+    .roomsContainer,
+    .otherContainer {
+        width: 85%;
+    }
+
+    .joinRoomForm {
+        * {
+            margin: 0 10px;
+        }
+
+        input {
+            height: 60%;
+            font-size: large;
+        }
+
+        .join,
+        .back {
+            font-size: large;
+            padding: 0;
+            padding: 10px 15px;
+        }
+    }
+
+    ::-webkit-scrollbar {
+        width: 3px;
+    }
+
+    .flashContainer {
+        width: 80%;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .btn.create {
+        padding: 8px 15px;
+        font-size: medium;
+    }
+
+    .sidebar {
+        width: 100%;
+    }
+
+    .joinRoomForm {
+        * {
+            margin: 0 10px;
+        }
+
+        input {
+            font-size: medium;
+            width: 50%;
+            height: 50%;
+        }
+
+        .join,
+        .back {
+            font-size: medium;
+            padding: 6px 12px;
+        }
+    }
+
+    .search {
+        font-size: medium;
+        height: 50%;
+    }
+
+    .flashContainer {
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .search {
+        width: 55%;
+    }
+
+    .room {
+        font-size: x-large;
+        font-weight: 700;
+        letter-spacing: 2px;
+    }
+
+    .roomsContainer,
+    .otherContainer {
+        width: 92%;
+    }
+
+    .flashContainer {
+        width: 100%;
+
+        .success,
+        .error {
+            font-size: medium;
+        }
+    }
+}
+
+@media screen and (max-width: 390px) {
+    .search {
+        padding-left: 10px;
+    }
+
+    .btn.create {
+        padding: 8px 8px;
+    }
+
+    .joinRoomForm {
+        * {
+            margin: 0 5px;
+        }
+
+        input {
+            font-size: small;
+            height: 46.5%;
+            width: 45%;
+        }
+
+    }
+}

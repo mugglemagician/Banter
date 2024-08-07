@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/index.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <title>Banter</title>
+</head>
+
+<body>
+
+    <div class="sidebar">
+
+        <div class="sidebarHeader">
+            <span class="cross">
+                &cross;
+            </span>
+        </div>
+
+        <div class="roomName">
+        </div>
+
+        <div class="sidebarContentContainer">
+            <div class="sidebarContent">
+
+                <% if (!currentUser) { %>
+                    <div class="registerBtn">
+                        <a href="/register" class="btn">Register</a>
+                    </div>
+
+                    <div class="loginBtn">
+                        <a href="/login" class="btn">Login</a>
+                    </div>
+                    <% } else { %>
+                        <div class="logoutBtn">
+                            <a href="/logout" class="btn">Logout</a>
+                        </div>
+                        <% } %>
+            </div>
+        </div>
+
+    </div>
+
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="/rooms">Banter</a>
+
+            </div>
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="user"
+                viewBox="0 0 16 16">
+                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
+                <path fill-rule="evenodd"
+                    d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1" />
+            </svg>
+
+        </nav>
+    </header>
+
+
+    <main>
+
+        <% if ((success && success.length> 0) || (error && error.length > 0)) { %>
+
+            <div class="flashContainer">
+
+                <div class="flashContent">
+
+                    <% if (success && success.length> 0) { %>
+                        <span class="success">
+                            <%= success %>
+                        </span>
+
+                        <% } %>
+
+                            <% if (error && error.length> 0) { %>
+                                <span class="error">
+                                    <%= error %>
+                                </span>
+
+                                <% } %>
+
+                </div>
+
+                <div class="closeFlash">
+                    &cross;
+                </div>
+
+            </div>
+
+            <% } %>
+
+                <div class="otherContainer">
+
+                    <input type="text" class="search" placeholder="Search banter spot." maxlength="12">
+
+                    <form action="/rooms/new" method="GET">
+                        <button class="btn create">Create Room</button>
+                    </form>
+
+                </div>
+
+                <div class="roomsContainer">
+                    <ul class="rooms">
+                        <% for(let room of rooms) { %>
+
+                            <li class="room">
+                                <a href="#" class="roomName">
+                                    <%= room.name %>
+                                </a>
+
+                                <form action="#" class="joinRoomForm">
+                                    <% if (room.password !=='' ) { %>
+                                        <input type="text" placeholder="Enter Password.." name="password"
+                                            autocomplete="off">
+                                        <% } %>
+                                            <button class="btn join" type="button"><a
+                                                    href="/rooms/<%= room._id %>?password=">Join</a></button>
+                                            <button class="btn back" type="button">Back</button>
+                                </form>
+
+                            </li>
+
+                            <% } %>
+                    </ul>
+                </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.7.3/dist/axios.min.js"></script>
+    <script src="/scripts/closeFlash.js"></script>
+    <script src="/scripts/index.js"></script>
+</body>
+
+</html>

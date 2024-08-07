@@ -1,0 +1,202 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Kanit', sans-serif;
+    list-style: none;
+    text-decoration: none;
+}
+
+body {
+    background-color: #0D1117;
+    height: 100vh;
+}
+
+main {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.flashContainer {
+    width: 40%;
+    height: 7%;
+    margin: 0 auto;
+    background-color: #161B22;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.flashContent {
+    margin-left: 40px;
+    margin-right: 5px;
+}
+
+.closeFlash {
+    color: white;
+    font-size: xx-large;
+    margin-right: 20px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.success,
+.error {
+    font-size: large;
+}
+
+.success {
+    color: greenyellow;
+}
+
+.error {
+    color: brown;
+}
+
+.btn,
+a {
+    padding: 5px 25px;
+    border-radius: 5px;
+    border: none;
+    background-color: #694F8E;
+    color: #FFDFD6;
+    cursor: pointer;
+    box-shadow: .5px .5px 2px .1px darkgray;
+    transition: transform .15s ease-in;
+    font-size: x-large;
+}
+
+.btn:hover,
+a:hover {
+    transform: translateY(-1px);
+}
+
+a {
+    background-color: brown;
+}
+
+form {
+    width: 40%;
+    height: 70%;
+    background-color: #161B22;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    color: #e2e2e2;
+}
+
+label {
+    margin-bottom: 10px;
+    font-size: x-large;
+}
+
+input {
+    width: 100%;
+    height: 100%;
+    font-size: x-large;
+    background-color: #e2e2e2;
+    padding: 5px 10px;
+}
+
+input:focus {
+    outline: none;
+}
+
+.inputContainer,
+.inputContainer div {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    width: 60%;
+}
+
+.registerForm {
+    height: 80%;
+}
+
+h1 {
+    font-size: 50px;
+    font-weight: 900;
+}
+
+@media screen and (max-width: 1160px) {
+    form {
+        width: 50%;
+    }
+
+    .flashContainer {
+        width: 60%;
+    }
+}
+
+@media screen and (max-width: 880px) {
+
+    .inputContainer {
+        width: 80%;
+    }
+
+    form {
+        width: 70%;
+    }
+
+    .flashContainer {
+        width: 70%;
+    }
+
+}
+
+@media screen and (max-width: 690px) {
+    .flashContainer {
+        width: 80%;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    form {
+        width: 90%;
+    }
+
+    label {
+        font-size: large;
+    }
+
+    .flashContainer {
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .flashContainer {
+        width: 100%;
+
+        .success,
+        .error {
+            font-size: medium;
+        }
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .createRoom {
+        font-size: 40px;
+    }
+
+}
+
+@media screen and (max-width: 390px) {
+
+    .inputContainer {
+
+        input {
+            width: 100%;
+        }
+    }
+}
