@@ -168,7 +168,9 @@ const HandleWebSocketRequests = () => {
 
 HandleWebSocketRequests();
 
-server.listen(3000, () => {
-    console.log("Server Started !");
+const port = process.env.PORT || 3000;
+
+server.listen(port, () => {
+    console.log(`Server started on port ${port}`);
 });
 
